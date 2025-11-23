@@ -1,0 +1,48 @@
+/* Horizontal scroll container */
+.horizontal-scroll-container {
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Artwork items */
+.artwork-item {
+  scroll-snap-align: center;
+  display: inline-block;
+  white-space: normal;
+}
+
+/* Smooth image loading */
+.artwork-image {
+  transition: opacity 0.3s ease-in-out;
+}
+
+.artwork-image[data-loading='true'] {
+  opacity: 0;
+}
+
+.artwork-image[data-loading='false'] {
+  opacity: 1;
+}
+
+/* Progress bar */
+.scroll-progress {
+  transition: width 0.1s ease-out;
+}
+
+/* Responsive utilities */
+@media (max-width: 767px) {
+  .horizontal-scroll-container {
+    overflow-x: hidden;
+    overflow-y: auto;
+    white-space: normal;
+    scroll-snap-type: y mandatory;
+  }
+
+  .artwork-item {
+    display: block;
+    scroll-snap-align: start;
+  }
+}
